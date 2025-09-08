@@ -29,7 +29,7 @@ const Footer = () => {
     { 
       name: 'WhatsApp', 
       iconUrl: 'https://cdn-icons-png.flaticon.com/512/733/733585.png',
-      url: 'https://wa.me/1234567890',
+      url: 'https://wa.me/584227000477',
       isWhatsApp: true
     }
   ];
@@ -37,7 +37,7 @@ const Footer = () => {
   const handleSocialClick = (social) => {
     if (social.isWhatsApp) {
       const message = encodeURIComponent('Hola! Me interesa conocer más sobre los servicios náuticos de GRU Corporación.');
-      const whatsappUrl = `https://wa.me/1555123456?text=${message}`;
+      const whatsappUrl = `https://wa.me/584227000477?text=${message}`;
       window.open(whatsappUrl, '_blank');
     } else {
       window.open(social.url, '_blank', 'noopener,noreferrer');
@@ -140,7 +140,8 @@ const Footer = () => {
             </div>
             <div className="text-primary-700 text-base">
               <p>info@grucorporacion.com</p>
-              <p>+1 (555) 123-4567</p>
+              <p>+58 422 700 0477</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;0424 959 0954</p>
             </div>
           </motion.div>
         </div>

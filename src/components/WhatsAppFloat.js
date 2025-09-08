@@ -25,7 +25,7 @@ const WhatsAppFloat = () => {
     const message = encodeURIComponent(
       'Hola! Me interesa conocer más sobre los servicios náuticos de GRU Corporación. ¿Podrían proporcionarme más información?'
     );
-    const whatsappUrl = `https://wa.me/1555123456?text=${message}`;
+    const whatsappUrl = `https://wa.me/584227000477?text=${message}`;
     window.open(whatsappUrl, '_blank');
     
     // Hide tooltip when clicked
