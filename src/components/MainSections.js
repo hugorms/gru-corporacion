@@ -1,40 +1,35 @@
-import React from 'react'; 
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Users, Target, Heart, Shield, Settings, Anchor, Ship, Truck } from 'lucide-react';
 import OptimizedImage from './OptimizedImage';
 import OrganicNauticalBackground from './OrganicNauticalBackground';
 
 const MainSections = () => {
+  const [activeService, setActiveService] = useState(1);
+  const servicesRef = useRef(null);
+  const containerRefs = useRef([]);
+  const accumulatedScroll = useRef(0);
+
+  const handleContainerClick = (index) => {
+    console.log('Container clicked:', index);
+    setActiveService(index);
+  };
+
   const services = [
-    {
-      image: "/images/servicios/agenciamiento-maritimo.jpg",
-      title: "Agenciamiento Marítimo",
-      description: "Gestión logística integral desde antes del arribo, seguimiento en puerto y zarpe, incluyendo representación ante autoridades locales y capitanía."
-    },
-    {
-      image: "/images/servicios/embarcaciones.jpg",
-      title: "Embarcaciones",
-      description: "Lanchas pequeñas, medianas y buques."
-    },
     {
       image: "/images/servicios/tramitacion-portuaria.jpg",
       title: "Tramitación Portuaria y Aduanal",
       description: "Permisología, documentación, despacho aduanal y zarpe."
     },
     {
-      image: "/images/servicios/cobertura-portuaria.jpg",
-      title: "Cobertura Portuaria",
-      description: "Operamos en el puerto de La Guaira."
+      image: "/images/servicios/agenciamiento-maritimo.jpg",
+      title: "Agenciamiento Marítimo",
+      description: "Gestión logística integral desde antes del arribo, seguimiento en puerto y zarpe, incluyendo representación ante autoridades locales y capitanía."
     },
     {
       image: "/images/servicios/suministro-provisiones.jpg",
-      title: "Suministro de Provisiones (Shipchandler)",
+      title: "Suministro de Provisiones",
       description: "Abastecimiento de insumos y repuestos para las embarcaciones."
-    },
-    {
-      image: "/images/servicios/servicio-lanchaje.jpg",
-      title: "Servicio de Lanchaje",
-      description: "Traslado de tripulación, asistencia médica, logística de repuestos y piezas, compras y reparaciones."
     }
   ];
 
@@ -58,6 +53,104 @@ const MainSections = () => {
       avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
     }
   ];
+
+  useEffect(() => {
+    // Touch/swipe handling for mobile
+    let startX = 0;
+    let startY = 0;
+    let isSwiping = false;
+
+    const handleTouchStart = (e) => {
+      if (window.innerWidth > 768) return; // Only on mobile
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+      isSwiping = false;
+    };
+
+    const handleTouchMove = (e) => {
+      if (window.innerWidth > 768) return; // Only on mobile
+      if (!startX || !startY) return;
+
+      const currentX = e.touches[0].clientX;
+      const currentY = e.touches[0].clientY;
+      const diffX = startX - currentX;
+      const diffY = startY - currentY;
+
+      // Check if horizontal swipe (more horizontal than vertical)
+      if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+        isSwiping = true;
+        e.preventDefault(); // Prevent scrolling
+      }
+    };
+
+    const handleTouchEnd = (e) => {
+      if (window.innerWidth > 768) return; // Only on mobile
+      if (!isSwiping || !startX) return;
+
+      const endX = e.changedTouches[0].clientX;
+      const diffX = startX - endX;
+
+      // Swipe threshold
+      if (Math.abs(diffX) > 50) {
+        if (diffX > 0) {
+          // Swipe left - next service
+          setActiveService((prev) => (prev + 1) % services.length);
+        } else {
+          // Swipe right - previous service
+          setActiveService((prev) => (prev - 1 + services.length) % services.length);
+        }
+      }
+
+      startX = 0;
+      startY = 0;
+      isSwiping = false;
+    };
+
+    // Sensitive scroll - each 40px changes container (más sensible)
+    const scrollSensitivity = 40;
+
+    const handleScroll = () => {
+      if (!servicesRef.current) return;
+
+      const servicesSection = servicesRef.current;
+      const sectionTop = servicesSection.offsetTop;
+      const sectionHeight = servicesSection.offsetHeight;
+      const currentScrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+
+      // Check if services section is in view (sincronizado con Header buffer de 150px)
+      const servicesInView = currentScrollY >= sectionTop - 150 && currentScrollY <= sectionTop + sectionHeight + 150;
+
+      if (servicesInView) {
+        // Always ensure we're in sync when in services area
+        if (accumulatedScroll.current === 0) {
+          console.log('Services section in view, initializing container 2...');
+          setActiveService(1);
+        }
+      } else {
+        // Reset when leaving services area
+        accumulatedScroll.current = 0;
+        setActiveService(1);
+      }
+    };
+
+    // Add event listeners
+    window.addEventListener('scroll', handleScroll);
+    if (servicesRef.current) {
+      servicesRef.current.addEventListener('touchstart', handleTouchStart, { passive: false });
+      servicesRef.current.addEventListener('touchmove', handleTouchMove, { passive: false });
+      servicesRef.current.addEventListener('touchend', handleTouchEnd, { passive: false });
+    }
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (servicesRef.current) {
+        servicesRef.current.removeEventListener('touchstart', handleTouchStart);
+        servicesRef.current.removeEventListener('touchmove', handleTouchMove);
+        servicesRef.current.removeEventListener('touchend', handleTouchEnd);
+      }
+    };
+  }, [services.length]);
 
   return (
     <div className="bg-gray-50 relative z-20">
@@ -89,8 +182,7 @@ const MainSections = () => {
               <p>
                 Somos una agencia portuaria especializada en brindar soluciones integrales en logística marítima 
                 y portuaria, con presencia activa en el puerto de La Guaira. Contamos con un equipo altamente 
-                capacitado, enfocado en la eficiencia de cada proceso y respaldado por la certificación ISO 
-                9001:2015, que garantiza la calidad en nuestras operaciones.
+                capacitado, enfocado en la eficiencia de cada proceso y respaldado por la certificación OMI, que garantiza la calidad en nuestras operaciones.
               </p>
             </div>
           </motion.div>
@@ -297,43 +389,145 @@ const MainSections = () => {
       </section>
 
       {/* Servicios */}
-      <section id="servicios" className="py-12 sm:py-16 lg:py-20 bg-secondary-100">
+      <section ref={servicesRef} id="servicios" className="pt-8 pb-32 sm:pt-10 sm:pb-40 lg:pt-12 lg:pb-48 bg-secondary-100">
         <div className="container mx-auto px-4 sm:px-6">
-          <motion.div 
-            className="text-center mb-16"
+          <motion.div
+            className="text-center mb-4"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold text-primary-900 mb-4 sm:mb-6">Nuestros Servicios</h2>
+            <h2 className="text-3xl font-bold text-primary-900 mb-2">Nuestros Servicios</h2>
             <p className="text-base text-primary-700 max-w-3xl mx-auto px-4 sm:px-0">Ofrecemos servicios náuticos profesionales para mantener tu embarcación en perfectas condiciones y maximizar su rendimiento.</p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-            {services.map((service, index) => (
-              <motion.div 
-                key={service.title}
-                className="bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.05 }}
-              >
-                <div className="h-48 sm:h-64 lg:h-80 overflow-hidden">
-                  <img 
-                    src={service.image} 
-                    alt={service.title}
-                    className="w-full h-full object-cover"
-                  />
+          {/* Carrusel 3D Circular en Profundidad */}
+          <div className="relative w-full max-w-7xl mx-auto px-2 sm:px-4" style={{ perspective: '1200px', minHeight: '400px', height: '400px' }}>
+            {services.map((service, index) => {
+              // Calcular posición relativa al centro
+              const positionFromCenter = index - activeService;
+              const isActive = positionFromCenter === 0;
+              const absPosition = Math.abs(positionFromCenter);
+
+              // Valores responsive para móvil y desktop
+              const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+              const mobileRadius = 200; // Radio más pequeño para móvil
+              const desktopRadius = 520; // Radio normal para desktop
+              const radius = isMobile ? mobileRadius : desktopRadius;
+
+              const mobileDepth = absPosition * 80; // Menos profundidad en móvil
+              const desktopDepth = absPosition * 200; // Profundidad normal en desktop
+              const depth = isMobile ? mobileDepth : desktopDepth;
+
+              // Calcular profundidad y posición circular
+              const angle = positionFromCenter * (isMobile ? 35 : 50); // Ángulo más cerrado en móvil
+
+              // Mantener todos los contenedores viendo al frente (sin rotación 3D)
+              const rotationY = 0;
+
+              return (
+                <motion.div
+                  key={service.title}
+                  ref={el => containerRefs.current[index] = el}
+                  className="absolute cursor-pointer"
+                  style={{
+                    width: isMobile ? '280px' : '400px',
+                    left: '50%',
+                    top: '0%',
+                    filter: isActive
+                      ? `drop-shadow(0 ${isMobile ? 30 : 50}px ${isMobile ? 20 : 35}px rgba(0, 0, 0, 0.15))`
+                      : `drop-shadow(0 ${(isMobile ? 20 : 35) + absPosition * (isMobile ? 8 : 15)}px ${(isMobile ? 15 : 25) + absPosition * (isMobile ? 6 : 12)}px rgba(0, 0, 0, ${0.1 + absPosition * 0.05}))`
+                  }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  animate={{
+                    scale: isActive ? 1 : (0.75 - absPosition * 0.1),
+                    opacity: isActive ? 1 : (0.4 - absPosition * 0.25),
+                    rotateY: rotationY,
+                    x: `calc(-50% + ${Math.sin((angle * Math.PI) / 180) * radius}px)`,
+                    y: `calc(-50% - ${absPosition * 8}px)`,
+                    z: -depth,
+                    zIndex: isActive ? 20 : (5 - absPosition),
+                    filter: !isActive ? `blur(${absPosition * 1.3}px) brightness(1.25)` : 'none'
+                  }}
+                  transition={{
+                    duration: 1.2,
+                    ease: [0.25, 0.46, 0.45, 0.94],
+                    zIndex: { duration: 0, delay: isActive ? 0 : 0.6 }
+                  }}
+                  viewport={{ once: true }}
+                  onClick={() => handleContainerClick(index)}
+                  whileHover={{
+                    scale: isActive ? 1.005 : (0.78 - absPosition * 0.1),
+                    transition: {
+                      duration: 0.5,
+                      ease: [0.16, 1, 0.3, 1],
+                      type: "spring",
+                      stiffness: 150,
+                      damping: 20
+                    }
+                  }}
+                >
+                {/* Encabezado con número circular */}
+                <div className="flex flex-col items-center mb-3">
+                  <div
+                    className="w-10 h-10 rounded-full flex items-center justify-center text-black font-bold text-sm mb-2"
+                    style={{
+                      backgroundColor: '#B8872A'
+                    }}
+                  >
+                    {index === 0 ? 2 : index === 1 ? 1 : index + 1}
+                  </div>
+                  <h3 className="text-lg font-bold text-center text-gray-800" style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '700' }}>
+                    {service.title}
+                  </h3>
                 </div>
-                <div className="p-3 sm:p-4 lg:p-6">
-                  <h3 className="text-base font-bold text-primary-900 mb-2 sm:mb-3">{service.title}</h3>
-                  <p className="text-base text-primary-700 leading-relaxed">{service.description}</p>
+
+                {/* Bloque de contenido con esquina recortada */}
+                <div
+                  className="relative overflow-hidden"
+                  style={{
+                    clipPath: isMobile
+                      ? 'polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 40px 100%, 0 calc(100% - 40px))'
+                      : 'polygon(0 0, calc(100% - 60px) 0, 100% 60px, 100% 100%, 60px 100%, 0 calc(100% - 60px))',
+                    borderRadius: isMobile ? '15px' : '20px',
+                    height: isMobile ? '280px' : '350px',
+                    boxShadow: isActive
+                      ? '0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 8px 16px -4px rgba(0, 0, 0, 0.2)'
+                      : `0 ${10 + absPosition * 5}px ${20 + absPosition * 10}px -${2 + absPosition * 2}px rgba(0, 0, 0, ${0.2 + absPosition * 0.1})`,
+                    transition: 'box-shadow 0.6s ease-out'
+                  }}
+                >
+                  {/* Imagen de fondo */}
+                  <div
+                    className="absolute inset-0 bg-cover bg-center"
+                    style={{
+                      backgroundImage: `url('${service.image}')`,
+                    }}
+                  ></div>
+
+                  {/* Degradado que va hasta el centro */}
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      background: 'linear-gradient(to bottom, rgba(42, 59, 85, 0.95) 0%, rgba(42, 59, 85, 0.8) 20%, rgba(42, 59, 85, 0.5) 30%, rgba(42, 59, 85, 0.3) 40%, transparent 50%)'
+                    }}
+                  ></div>
+
+                  {/* Contenido */}
+                  <div className={`relative z-10 ${isMobile ? 'p-4' : 'p-6'} h-full flex flex-col justify-start items-center text-center`}>
+                    <p
+                      className={`text-white ${isMobile ? 'text-sm' : 'text-base'} leading-relaxed ${isMobile ? 'mt-2' : 'mt-4'}`}
+                      style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '400' }}
+                    >
+                      {service.description}
+                    </p>
+                  </div>
                 </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>

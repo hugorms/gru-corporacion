@@ -101,7 +101,7 @@ const HeroSection = () => {
 
         {/* Botón Contáctanos */}
         <motion.button
-          className="text-white px-4 sm:px-8 md:px-10 py-2 sm:py-4 rounded-full text-sm sm:text-base font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 text-center mt-6 sm:mt-12"
+          className="text-black px-4 sm:px-8 md:px-10 py-2 sm:py-4 rounded-full text-sm sm:text-base font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 text-center mt-6 sm:mt-12"
           style={{backgroundColor: '#B8872A'}}
           onMouseEnter={(e) => e.target.style.backgroundColor = '#A07825'}
           onMouseLeave={(e) => e.target.style.backgroundColor = '#B8872A'}

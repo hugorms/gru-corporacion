@@ -58,7 +58,7 @@ const Header = () => {
     const handleScroll = () => {
       const sections = navItems.map(item => item.id);
       const headerHeight = 80;
-      const buffer = 150; // Buffer para mejor detección
+      const buffer = 20; // Buffer reducido para secciones compactas
       const scrollPosition = window.scrollY;
 
       // Si estamos en el top de la página, marcar "inicio"
@@ -67,15 +67,36 @@ const Header = () => {
         return;
       }
 
-      // Recorrer secciones desde la última hacia la primera
+      // Prioridad específica para servicios (sección compacta)
+      const serviciosElement = document.getElementById('servicios');
+      if (serviciosElement) {
+        const serviciosTop = serviciosElement.offsetTop - headerHeight;
+        const serviciosBottom = serviciosElement.offsetTop + serviciosElement.offsetHeight;
+        const serviciosBuffer = 150; // Buffer extra para servicios
+
+        if (scrollPosition >= serviciosTop - serviciosBuffer && scrollPosition <= serviciosBottom + serviciosBuffer) {
+          setActiveSection('servicios');
+          return;
+        }
+      }
+
+      // Para el resto de secciones, lógica normal pero excluyendo testimonios si estamos cerca de servicios
       let currentSection = 'inicio';
-      
+
       for (const sectionId of sections) {
+        if (sectionId === 'servicios') continue; // Ya verificado arriba
+
         const element = document.getElementById(sectionId);
         if (element) {
           const sectionTop = element.offsetTop - headerHeight - buffer;
-          
-          if (scrollPosition >= sectionTop) {
+
+          // Para testimonios, requerir estar claramente dentro de la sección
+          if (sectionId === 'testimonios') {
+            const testimoniosBuffer = 100;
+            if (scrollPosition >= sectionTop + testimoniosBuffer) {
+              currentSection = sectionId;
+            }
+          } else if (scrollPosition >= sectionTop) {
             currentSection = sectionId;
           }
         }

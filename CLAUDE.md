@@ -1,0 +1,1 @@
+- en el mismo inicio #B2BDCE cambia ese por un fondo entre esos dos colores #B2BDCE #B8872A  ose el colo qeu esta en el medio de eso dos colores

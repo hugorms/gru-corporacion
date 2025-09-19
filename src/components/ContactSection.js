@@ -60,7 +60,7 @@ initial={{ opacity: 0, x: -30 }}
     <div className="space-y-4 sm:space-y-5">
       <div className="flex items-start sm:items-center space-x-3 sm:space-x-4">
         <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center bg-accent-600 flex-shrink-0">
-          <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+          <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-black" />
         </div>
         <div>
           <h4 className="text-white font-semibold text-sm sm:text-base">Teléfono de oficina</h4>
@@ -70,7 +70,7 @@ initial={{ opacity: 0, x: -30 }}
 
       <div className="flex items-start sm:items-center space-x-3 sm:space-x-4">
         <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center bg-accent-600 flex-shrink-0">
-          <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+          <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-black" />
         </div>
         <div>
           <h4 className="text-white font-semibold text-sm sm:text-base">Correo Electrónico</h4>
@@ -80,7 +80,7 @@ initial={{ opacity: 0, x: -30 }}
 
       <div className="flex items-start sm:items-center space-x-3 sm:space-x-4">
         <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center bg-accent-600 flex-shrink-0">
-          <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+          <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-black" />
         </div>
         <div>
           <h4 className="text-white font-semibold text-sm sm:text-base">Ubicación</h4>
@@ -186,8 +186,8 @@ initial={{ opacity: 0, x: -30 }}
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
       >
-        <Send className="w-4 h-4 sm:w-5 sm:h-5" />
-        <span>Enviar Mensaje</span>
+        <Send className="w-4 h-4 sm:w-5 sm:h-5 text-black" />
+        <span className="text-black">Enviar Mensaje</span>
       </motion.button>
               </form>
             </div>
