@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install)",
+      "Bash(npm install:*)",
+      "Bash(cat:*)",
+      "Bash(sed:*)",
+      "Bash(npm run dev:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nUpdate contact information with correct phone numbers\n\n- Update WhatsApp number to +58 422 700 0477 in all components\n- Update office phone to 0424 959 0954 in contact section\n- Change \"Teléfono\" to \"Teléfono de oficina\" for clarity\n- Format and align phone numbers in footer for better presentation\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(mkdir:*)",
+      "Bash(rmdir:*)",
+      "Bash(npm start)",
+      "Bash(where magick convert)",
+      "Bash(where:*)",
+      "Bash(findstr:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git remote remove:*)",
+      "Bash(git remote add:*)",
+      "Bash(git init:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
