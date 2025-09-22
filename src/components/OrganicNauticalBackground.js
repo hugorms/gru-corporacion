@@ -18,11 +18,12 @@ const OrganicNauticalBackground = ({ className = '', style = {}, children, ...pr
 
   const combinedStyle = {
     background: `
-      linear-gradient(180deg, 
-        rgba(42, 59, 85, 1) 0%, 
-        rgba(42, 59, 85, 0.95) 20%, 
-        rgba(42, 59, 85, 0.98) 80%, 
-        rgba(42, 59, 85, 1) 100%
+      linear-gradient(135deg,
+        #B2BDCE 0%,
+        #9BA3B9 25%,
+        #A09BA6 50%,
+        #A5943F 75%,
+        #B8872A 100%
       )
     `,
     position: 'relative',
@@ -56,7 +57,7 @@ const OrganicNauticalBackground = ({ className = '', style = {}, children, ...pr
               key={index}
               d={path}
               fill="none"
-              stroke="#3C4D70"
+              stroke="rgba(255,255,255,0.3)"
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
