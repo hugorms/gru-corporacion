@@ -1,7 +1,46 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+// Add CSS for reduced motion accessibility
+const brandingAnimationStyles = `
+  @media (prefers-reduced-motion: reduce) {
+    .branding-animation * {
+      animation: none !important;
+      transition: opacity 0.2s ease !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .branding-mobile {
+      transform: scale(0.95);
+    }
+  }
+`;
+
 const Footer = () => {
+  // Inject styles for reduced motion and responsive support
+  React.useEffect(() => {
+    const styleElement = document.createElement('style');
+    styleElement.textContent = brandingAnimationStyles;
+    document.head.appendChild(styleElement);
+    return () => document.head.removeChild(styleElement);
+  }, []);
+
+  // Detect reduced motion preference
+  const prefersReducedMotion = React.useMemo(() => {
+    return typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }, []);
+
+  // Animation variants with reduced motion support
+  const getAnimationProps = (baseProps, reducedMotionProps = {}) => {
+    return prefersReducedMotion ? {
+      initial: { opacity: 0 },
+      animate: { opacity: 1 },
+      transition: { duration: 0.2 },
+      ...reducedMotionProps
+    } : baseProps;
+  };
+
   const quickLinks = [
     { name: 'Inicio', href: '#inicio' },
     { name: 'Quiénes Somos', href: '#quienes-somos' },
@@ -96,7 +135,30 @@ const Footer = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="flex items-center space-x-3 mb-5">
+            <motion.div
+              className="flex items-center space-x-3 mb-5 branding-animation branding-mobile"
+              {...getAnimationProps({
+                initial: {
+                  opacity: 0,
+                  scale: 0.98,
+                  filter: "blur(4px)"
+                },
+                animate: {
+                  opacity: 1,
+                  scale: 1,
+                  filter: "blur(0px)"
+                },
+                transition: {
+                  delay: 3.0,
+                  duration: 0.75,
+                  ease: [0.22, 1, 0.36, 1]
+                }
+              })}
+              style={{
+                minHeight: '4rem',
+                position: 'relative'
+              }}
+            >
               <div className="w-16 h-16 flex items-center justify-center">
                 <img
                   src="/images/logos/LOGO sin texto .png"
@@ -105,13 +167,81 @@ const Footer = () => {
                 />
               </div>
               <div>
-                <h3 className="text-xl tracking-wide leading-tight" style={{color: '#B8872A', textShadow: '1px 1px 3px rgba(0,0,0,0.25)'}}><span className="font-bold">GRU</span> CORPORACIÓN</h3>
-                <p className="text-base font-medium tracking-wide leading-tight mt-0.5" style={{color: '#2A3B55', textShadow: '1px 1px 3px rgba(0,0,0,0.25)'}}>NÁUTICA DE SERVICIOS</p>
+                <motion.h3
+                  className="text-xl tracking-wide leading-tight sm:text-2xl md:text-xl"
+                  style={{
+                    color: '#B8872A',
+                    textShadow: '1px 1px 3px rgba(0,0,0,0.25)'
+                  }}
+                  {...getAnimationProps({
+                    initial: {
+                      opacity: 0,
+                      y: 28,
+                      scale: 0.99
+                    },
+                    animate: {
+                      opacity: 1,
+                      y: 0,
+                      scale: 1
+                    },
+                    transition: {
+                      delay: 3.2,
+                      duration: 0.7,
+                      ease: [0.22, 1, 0.36, 1]
+                    }
+                  })}
+                >
+                  <span className="font-bold">GRU</span> CORPORACIÓN
+                </motion.h3>
+                <motion.p
+                  className="text-base font-medium tracking-wide leading-tight mt-0.5 sm:text-lg md:text-base"
+                  style={{
+                    color: '#2A3B55',
+                    textShadow: '1px 1px 3px rgba(0,0,0,0.25)'
+                  }}
+                  {...getAnimationProps({
+                    initial: {
+                      opacity: 0,
+                      y: 26
+                    },
+                    animate: {
+                      opacity: 1,
+                      y: 0
+                    },
+                    transition: {
+                      delay: 3.35,
+                      duration: 0.7,
+                      ease: [0.22, 1, 0.36, 1]
+                    }
+                  })}
+                >
+                  AGENCIA NAVIERA
+                </motion.p>
               </div>
-            </div>
-            <p className="text-primary-700 leading-relaxed">
-              Especialistas en servicios náuticos de calidad, brindando soluciones confiables y seguras.
-            </p>
+            </motion.div>
+            <motion.p
+              className="text-primary-700 leading-relaxed sm:text-lg md:text-base"
+              {...getAnimationProps({
+                initial: {
+                  opacity: 0,
+                  y: 16
+                },
+                animate: {
+                  opacity: 1,
+                  y: 0
+                },
+                transition: {
+                  delay: 3.5,
+                  duration: 0.7,
+                  ease: [0.22, 1, 0.36, 1]
+                }
+              })}
+              style={{
+                minHeight: '3rem'
+              }}
+            >
+              Expertos en servicio de agenciamiento y tramites con mas de una década de experiencia.
+            </motion.p>
           </motion.div>
 
           {/* Quick Links */}
@@ -198,8 +328,24 @@ const Footer = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
         >
-          <p className="text-primary-700">
-            © 2025 GRU Corporación - Náutica de Servicios. Todos los derechos reservados.
+          <p className="text-primary-700 text-xs sm:text-base">
+            © 2025 <span
+              className="text-sm sm:text-xl tracking-wide leading-tight font-bold"
+              style={{
+                color: '#B8872A',
+                textShadow: '1px 1px 3px rgba(0,0,0,0.25)'
+              }}
+            >
+              GRU CORPORACIÓN
+            </span> - <span
+              className="text-xs sm:text-base font-medium tracking-wide leading-tight"
+              style={{
+                color: '#2A3B55',
+                textShadow: '1px 1px 3px rgba(0,0,0,0.25)'
+              }}
+            >
+              AGENCIA NAVIERA
+            </span>. Todos los derechos reservados.
           </p>
         </motion.div>
       </div>

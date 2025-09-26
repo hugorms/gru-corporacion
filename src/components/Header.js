@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import OptimizedImage from './OptimizedImage';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -131,18 +130,15 @@ const Header = () => {
           whileHover={{ scale: 1.05 }}
         >
           <div className="w-16 h-16 sm:w-16 sm:h-16 flex items-center justify-center">
-            <OptimizedImage 
-              src="/images/logos/LOGO sin texto .png" 
+            <img
+              src="/images/logos/LOGO sin texto .png"
               alt="GRU Corporación - Agencia Portuaria La Guaira"
               className="w-full h-full object-contain"
-              priority={true}
-              width="64"
-              height="64"
             />
           </div>
           <div className="ml-0 sm:ml-3">
             <h1 className="text-xl sm:text-2xl tracking-wide leading-tight" style={{color: '#B8872A', textShadow: '1px 1px 3px rgba(0,0,0,0.25)'}}><span className="font-bold">GRU</span> CORPORACIÓN</h1>
-            <p className="text-sm sm:text-base font-medium tracking-wide leading-tight mt-0.5" style={{color: '#2A3B55', textShadow: '1px 1px 3px rgba(0,0,0,0.25)'}}>NÁUTICA DE SERVICIOS</p>
+            <p className="text-sm sm:text-base font-medium tracking-wide leading-tight mt-0.5" style={{color: '#2A3B55', textShadow: '1px 1px 3px rgba(0,0,0,0.25)'}}>AGENCIA NAVIERA</p>
           </div>
         </motion.div>
 

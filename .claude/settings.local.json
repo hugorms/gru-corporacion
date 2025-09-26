@@ -19,7 +19,9 @@
       "Bash(git remote remove:*)",
       "Bash(git remote add:*)",
       "Bash(git init:*)",
-      "Bash(git config:*)"
+      "Bash(git config:*)",
+      "Bash(git checkout:*)",
+      "Bash(find:*)"
     ],
     "deny": [],
     "ask": []

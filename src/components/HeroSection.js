@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import OptimizedImage from './OptimizedImage';
 
 const HeroSection = () => {
   const backgroundImages = [
-    "/images/fondos/fondo.jpg.jpg",
-    "/images/fondos/fondo-2.jpg.jpg",
+    "/images/fondos/fondo.webp",
+    "/images/fondos/fondo2.webp",
     "/images/fondos/fondo.3-jpg.jpg"
   ];
 
@@ -53,13 +52,12 @@ const HeroSection = () => {
             animate={{ opacity: index === currentImageIndex ? 1 : 0 }}
             transition={{ duration: 2, ease: "easeInOut" }}
           >
-            <OptimizedImage
+            <img
               src={image}
               alt="Fondo náutico GRU Corporación"
-              className={`w-full h-full object-cover ${image.includes('fondo.jpg.jpg') ? 'object-top' : 'object-center'}`}
-              priority={index === 0}
-              width="1920"
-              height="1080"
+              loading={index === 0 ? "eager" : "lazy"}
+              decoding="async"
+              className={`w-full h-full object-cover ${image.includes('fondo.webp') ? 'object-top' : 'object-center'}`}
             />
           </motion.div>
         ))}
@@ -72,52 +70,53 @@ const HeroSection = () => {
         <div className="absolute bottom-10 sm:bottom-20 right-1/3 w-24 sm:w-32 h-24 sm:h-32 bg-secondary-400/20 rounded-full blur-3xl"></div>
       </div>
 
-      {/* Contenido principal */}
-      <div className="relative z-20 container mx-auto px-4 sm:px-6 text-center -mt-32">
+      {/* Contenedor del título principal - GRUCORPORACIÓN, AGENCIA NAVIERA, descripción */}
+      <div className="relative z-20 container mx-auto px-6 sm:px-6 text-center -mt-64 sm:-mt-64">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <motion.h1
             className="leading-tight text-white relative"
-            style={{ marginBottom: isMobile ? '0.5rem' : '1rem' }}
-            initial={{ opacity: 0, y: 50 }}
+            style={{ marginBottom: isMobile ? '0.5rem' : '1rem', willChange: 'transform' }}
+            initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 3.2, duration: 1.2, ease: "easeOut" }}
+            transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
           >
             <motion.div
               className="absolute rounded-2xl"
               style={{
-                background: 'linear-gradient(to bottom, rgba(178, 189, 206, 0.75) 0%, rgba(178, 189, 206, 0.4) 40%, rgba(178, 189, 206, 0.2) 70%, transparent 100%)',
-                padding: isMobile ? '1rem 1rem 9rem 1rem' : '1rem 1rem 9rem 1rem',
-                margin: isMobile ? '-1rem -1rem -7rem -1rem' : '-1rem -1rem -7rem -1rem',
+                background: 'linear-gradient(to bottom, rgba(178, 189, 206, 0.9) 0%, rgba(178, 189, 206, 0.6) 40%, rgba(178, 189, 206, 0.4) 70%, transparent 100%)',
+                padding: isMobile ? '1.5rem 2rem 6rem 2rem' : '1rem 1rem 9rem 1rem',
+                margin: isMobile ? '-1rem -1rem -4rem -1rem' : '-1rem -1rem -7rem -1rem',
                 top: 0,
-                left: isMobile ? '5%' : '12%',
-                right: isMobile ? '5%' : '12%',
-                bottom: '-7rem',
-                boxShadow: '0 -20px 25px -10px rgba(0, 0, 0, 0.2), -20px -10px 25px -10px rgba(0, 0, 0, 0.15), 20px -10px 25px -10px rgba(0, 0, 0, 0.15)'
+                left: isMobile ? '6%' : '12%',
+                right: isMobile ? '6%' : '12%',
+                bottom: isMobile ? '-4rem' : '-7rem',
+                boxShadow: '0 -20px 25px -10px rgba(0, 0, 0, 0.2), -20px -10px 25px -10px rgba(0, 0, 0, 0.15), 20px -10px 25px -10px rgba(0, 0, 0, 0.15)',
+                willChange: 'transform, opacity'
               }}
-              initial={{ opacity: 0, scale: isMobile ? 1 : 0.98 }}
+              initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 3.0, duration: isMobile ? 0.8 : 1.2, ease: isMobile ? "easeInOut" : "easeOut" }}
+              transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
             ></motion.div>
             <div className="relative z-10">
               <motion.span
                 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold inline-block"
-                style={{color: '#B8872A'}}
-                initial={{ opacity: 0, y: isMobile ? 15 : 30, filter: isMobile ? "none" : "blur(10px)" }}
-                animate={{ opacity: 1, y: 0, filter: isMobile ? "none" : "blur(0px)" }}
-                transition={{ delay: 3.3, duration: isMobile ? 0.6 : 1, ease: isMobile ? [0.25, 0.46, 0.45, 0.94] : "easeOut" }}
+                style={{color: '#B8872A', textShadow: '1px 1px 3px rgba(0,0,0,0.25)', willChange: 'transform'}}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.5, ease: "easeOut" }}
               >
                 GRU
               </motion.span>
               <motion.span
-                style={{marginLeft: '0.2em'}}
+                style={{marginLeft: '0.2em', color: '#FFFFFF', textShadow: '1px 1px 3px rgba(0,0,0,0.25)', willChange: 'transform'}}
                 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal inline-block"
-                initial={{ opacity: 0, y: isMobile ? 15 : 30, filter: isMobile ? "none" : "blur(10px)" }}
-                animate={{ opacity: 1, y: 0, filter: isMobile ? "none" : "blur(0px)" }}
-                transition={{ delay: 3.5, duration: isMobile ? 0.6 : 1, ease: isMobile ? [0.25, 0.46, 0.45, 0.94] : "easeOut" }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.5, ease: "easeOut" }}
               >
                 CORPORACIÓN
               </motion.span>
@@ -127,38 +126,58 @@ const HeroSection = () => {
           <motion.p
             className="text-xl sm:text-4xl md:text-5xl font-medium tracking-wide text-white relative z-20"
             style={{
-              textShadow: '2px 2px 8px rgba(0,0,0,0.7)',
+              color: '#2A3B55',
               marginTop: isMobile ? '-0.5rem' : '0',
-              marginBottom: isMobile ? '1rem' : '1.5rem'
+              marginBottom: isMobile ? '1rem' : '1.5rem',
+              willChange: 'transform'
             }}
-            initial={{ opacity: 0, x: isMobile ? -20 : -50, filter: isMobile ? "none" : "blur(8px)" }}
-            animate={{ opacity: 1, x: 0, filter: isMobile ? "none" : "blur(0px)" }}
-            transition={{ delay: 3.7, duration: isMobile ? 0.6 : 1, ease: isMobile ? [0.25, 0.46, 0.45, 0.94] : "easeOut" }}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.6, duration: 0.5, ease: "easeOut" }}
           >
-            NÁUTICA DE SERVICIOS
+            AGENCIA NAVIERA
           </motion.p>
 
           <motion.p
-            className="text-base sm:text-3xl md:text-4xl max-w-3xl leading-relaxed mx-auto mb-8 sm:mb-12 text-white relative z-20"
+            className="text-base sm:text-3xl md:text-4xl max-w-xs sm:max-w-3xl leading-relaxed mx-auto mb-4 sm:mb-12 text-white relative z-20"
             style={{
               textShadow: '2px 2px 8px rgba(0,0,0,0.7)',
-              marginTop: isMobile ? '-0.5rem' : '0'
+              marginTop: isMobile ? '-0.5rem' : '0',
+              willChange: 'transform'
             }}
-            initial={{ opacity: 0, x: isMobile ? 20 : 50, filter: isMobile ? "none" : "blur(8px)" }}
-            animate={{ opacity: 1, x: 0, filter: isMobile ? "none" : "blur(0px)" }}
-            transition={{ delay: 3.9, duration: isMobile ? 0.6 : 1, ease: isMobile ? [0.25, 0.46, 0.45, 0.94] : "easeOut" }}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.7, duration: 0.5, ease: "easeOut" }}
           >
-            Expertos en servicios náuticos profesionales con más de una década de experiencia, navegando hacia la excelencia.
+            Expertos en servicio de agenciamiento y tramites con mas de una década de experiencia.
           </motion.p>
         </motion.div>
+      </div>
+
+      {/* Contenedor independiente para eslogan y botón */}
+      <div className="absolute bottom-40 sm:bottom-32 left-1/2 transform -translate-x-1/2 flex flex-col items-center z-20">
+        {/* Eslogan */}
+        <motion.p
+          className="text-sm sm:text-xl md:text-2xl max-w-2xl leading-relaxed mx-auto mb-4 sm:mb-6 text-white font-medium italic"
+          style={{
+            color: '#FFFFFF',
+            textShadow: '3px 3px 12px rgba(0,0,0,0.95), 1px 1px 4px rgba(0,0,0,1), 0 0 8px rgba(0,0,0,0.9)',
+            willChange: 'transform'
+          }}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.9, duration: 0.5, ease: "easeOut" }}
+        >
+          Navegando hacia la excelencia
+        </motion.p>
 
         {/* Botón Cotiza con nosotros con flecha al lado */}
         <motion.button
-          className="px-4 sm:px-8 md:px-10 py-2 sm:py-4 rounded-full text-sm sm:text-base font-semibold shadow-xl hover:shadow-2xl transition-shadow duration-300 mx-auto mt-6 sm:mt-12 flex items-center justify-center gap-2"
-          style={{backgroundColor: '#B8872A', color: 'black'}}
-          initial={{ opacity: 0, y: 50 }}
+          className="px-4 sm:px-8 md:px-10 py-2 sm:py-4 rounded-full text-sm sm:text-base font-semibold shadow-xl hover:shadow-2xl transition-shadow duration-300 flex items-center justify-center gap-2"
+          style={{backgroundColor: '#B8872A', color: 'black', willChange: 'transform'}}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 4.1, duration: 1, ease: "easeOut" }}
+          transition={{ delay: 1.0, duration: 0.5, ease: "easeOut" }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => {
@@ -197,44 +216,6 @@ const HeroSection = () => {
           </motion.svg>
         </motion.button>
       </div>
-
-      {/* Indicador de scroll - Flecha alineada con Contacto (móvil: botón menú, desktop: enlace Contacto) */}
-      <motion.div
-        className="absolute bottom-8 cursor-pointer right-4 sm:right-6 lg:right-6 xl:right-8"
-        animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-        onClick={() => {
-          const element = document.getElementById('quienes-somos');
-          if (element) {
-            const rect = element.getBoundingClientRect();
-            const currentScrollY = window.pageYOffset;
-            const elementTop = rect.top + currentScrollY;
-            
-            const headerHeight = 80;
-            const spacing = 20;
-            const scrollPosition = elementTop - headerHeight - spacing;
-
-            window.scrollTo({
-              top: Math.max(0, scrollPosition),
-              behavior: 'smooth'
-            });
-          }
-        }}
-      >
-        <svg 
-          className="w-8 h-8 text-white opacity-80 hover:opacity-100 transition-opacity"
-          fill="none" 
-          stroke="currentColor" 
-          viewBox="0 0 24 24"
-        >
-          <path 
-            strokeLinecap="round" 
-            strokeLinejoin="round" 
-            strokeWidth={2} 
-            d="M19 14l-7 7m0 0l-7-7m7 7V3" 
-          />
-        </svg>
-      </motion.div>
     </section>
   );
 };

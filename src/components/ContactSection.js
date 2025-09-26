@@ -63,8 +63,8 @@ initial={{ opacity: 0, x: -30 }}
           <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-black" />
         </div>
         <div>
-          <h4 className="text-white font-semibold text-sm sm:text-base">Teléfono de oficina</h4>
-          <p className="text-secondary-300 text-sm sm:text-base">0424 9590954</p>
+          <h4 className="text-white font-semibold text-sm sm:text-base">Teléfono local</h4>
+          <p className="text-secondary-300 text-sm sm:text-base">0424 959 0954</p>
         </div>
       </div>
 
