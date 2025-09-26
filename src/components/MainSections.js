@@ -99,7 +99,7 @@ const MainSections = () => {
   return (
     <div className="bg-gray-50 relative z-20">
       {/* Quiénes Somos */}
-      <section id="quienes-somos" className="py-12 sm:py-16 lg:py-20 relative overflow-hidden">
+      <section id="quienes-somos" className="py-12 sm:py-16 lg:py-20 relative overflow-hidden bg-primary-900">
         {/* Olas náuticas de fondo */}
         <div className="absolute inset-0 pointer-events-none">
           <svg className="absolute bottom-0 left-0 w-full h-32" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -137,7 +137,7 @@ const MainSections = () => {
             viewport={{ once: true }}
           >
             <motion.h2
-              className="text-3xl font-bold text-primary-900 mb-6 sm:mb-8"
+              className="text-3xl font-bold text-white mb-6 sm:mb-8"
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -147,7 +147,7 @@ const MainSections = () => {
               Quiénes Somos
             </motion.h2>
             <motion.div
-              className="max-w-4xl mx-auto text-primary-800 space-y-3 sm:space-y-4 leading-relaxed px-4 sm:px-0"
+              className="max-w-4xl mx-auto text-gray-200 space-y-3 sm:space-y-4 leading-relaxed px-4 sm:px-0"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -170,63 +170,63 @@ const MainSections = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
             <motion.div
-              className="bg-white p-6 sm:p-8 rounded-3xl text-center"
+              className="bg-white/95 backdrop-blur-sm p-4 sm:p-5 rounded-2xl text-center border border-white/20"
               style={{
-                boxShadow: '0 8px 25px -5px rgba(0, 0, 0, 0.1)'
+                boxShadow: '0 10px 30px -5px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.1)'
               }}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
               viewport={{ once: true }}
               whileHover={{
-                y: -8,
-                boxShadow: '0 12px 35px -8px rgba(0, 0, 0, 0.15)',
+                y: -6,
+                boxShadow: '0 15px 40px -8px rgba(0, 0, 0, 0.4), 0 6px 8px -2px rgba(0, 0, 0, 0.15)',
                 transition: { duration: 0.3, ease: "easeOut" }
               }}
             >
-              <Target className="w-12 h-12 text-accent-600 mx-auto mb-4" />
-              <h3 className="text-base font-bold text-primary-900 mb-4">Misión</h3>
-              <p className="text-primary-700">Satisfacer las necesidades de nuestros clientes, aplicando los más altos estándares de calidad, obteniendo los mejores resultados, optimizando el tiempo y el costo de todas las operaciones y procesos.</p>
+              <Target className="w-10 h-10 text-accent-600 mx-auto mb-2" />
+              <h3 className="text-base font-bold text-primary-900 mb-3">Misión</h3>
+              <p className="text-primary-700 text-base leading-relaxed">Satisfacer las necesidades de nuestros clientes, aplicando los más altos estándares de calidad, obteniendo los mejores resultados, optimizando el tiempo y el costo de todas las operaciones y procesos.</p>
             </motion.div>
 
             <motion.div
-              className="bg-white p-6 sm:p-8 rounded-3xl text-center"
+              className="bg-white/95 backdrop-blur-sm p-4 sm:p-5 rounded-2xl text-center border border-white/20"
               style={{
-                boxShadow: '0 8px 25px -5px rgba(0, 0, 0, 0.1)'
+                boxShadow: '0 10px 30px -5px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.1)'
               }}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               viewport={{ once: true }}
               whileHover={{
-                y: -8,
-                boxShadow: '0 12px 35px -8px rgba(0, 0, 0, 0.15)',
+                y: -6,
+                boxShadow: '0 15px 40px -8px rgba(0, 0, 0, 0.4), 0 6px 8px -2px rgba(0, 0, 0, 0.15)',
                 transition: { duration: 0.3, ease: "easeOut" }
               }}
             >
-              <Users className="w-12 h-12 mx-auto mb-4" style={{color: '#B2BDCE'}} />
-              <h3 className="text-base font-bold text-primary-900 mb-4">Visión</h3>
-              <p className="text-primary-700">Consolidarnos como la agencia naviera de referencia del país, demostrando su capacidad, cobertura y compromiso con el desarrollo marítimo.</p>
+              <Users className="w-10 h-10 mx-auto mb-2" style={{color: '#B2BDCE'}} />
+              <h3 className="text-base font-bold text-primary-900 mb-3">Visión</h3>
+              <p className="text-primary-700 text-base leading-relaxed">Consolidarnos como la agencia naviera de referencia del país, demostrando su capacidad, cobertura y compromiso con el desarrollo marítimo.</p>
             </motion.div>
 
             <motion.div
-              className="bg-white p-6 sm:p-8 rounded-3xl text-center"
+              className="bg-white/95 backdrop-blur-sm p-4 sm:p-5 rounded-2xl text-center border border-white/20"
               style={{
-                boxShadow: '0 8px 25px -5px rgba(0, 0, 0, 0.1)'
+                boxShadow: '0 10px 30px -5px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.1)'
               }}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
               viewport={{ once: true }}
               whileHover={{
-                y: -8,
-                boxShadow: '0 12px 35px -8px rgba(0, 0, 0, 0.15)',
+                y: -6,
+                boxShadow: '0 15px 40px -8px rgba(0, 0, 0, 0.4), 0 6px 8px -2px rgba(0, 0, 0, 0.15)',
                 transition: { duration: 0.3, ease: "easeOut" }
               }}
             >
-              <Heart className="w-12 h-12 text-accent-600 mx-auto mb-4" />
-              <h3 className="text-base font-bold text-primary-900 mb-4">Valores</h3>
-              <ul className="text-primary-700 text-left space-y-2">
+              <Heart className="w-10 h-10 text-accent-600 mx-auto mb-2" />
+              <h3 className="text-base font-bold text-primary-900 mb-3">Valores</h3>
+              <ul className="text-primary-700 text-left space-y-1 text-base leading-snug">
                 <li>• Compromiso</li>
                 <li>• Excelencia operativa</li>
                 <li>• Seguridad</li>

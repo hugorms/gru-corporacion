@@ -71,7 +71,7 @@ const HeroSection = () => {
       </div>
 
       {/* Contenedor del título principal - GRUCORPORACIÓN, AGENCIA NAVIERA, descripción */}
-      <div className="relative z-20 container mx-auto px-6 sm:px-6 text-center -mt-64 sm:-mt-64">
+      <div className="relative z-20 container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 text-center -mt-64 sm:-mt-64">
         <motion.div
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -91,8 +91,8 @@ const HeroSection = () => {
                 padding: isMobile ? '1.5rem 2rem 6rem 2rem' : '1rem 1rem 9rem 1rem',
                 margin: isMobile ? '-1rem -1rem -4rem -1rem' : '-1rem -1rem -7rem -1rem',
                 top: 0,
-                left: isMobile ? '6%' : '12%',
-                right: isMobile ? '6%' : '12%',
+                left: isMobile ? '4%' : '8%',
+                right: isMobile ? '4%' : '8%',
                 bottom: isMobile ? '-4rem' : '-7rem',
                 boxShadow: '0 -20px 25px -10px rgba(0, 0, 0, 0.2), -20px -10px 25px -10px rgba(0, 0, 0, 0.15), 20px -10px 25px -10px rgba(0, 0, 0, 0.15)',
                 willChange: 'transform, opacity'
@@ -155,14 +155,15 @@ const HeroSection = () => {
       </div>
 
       {/* Contenedor independiente para eslogan y botón */}
-      <div className="absolute bottom-40 sm:bottom-32 left-1/2 transform -translate-x-1/2 flex flex-col items-center z-20">
+      <div className="absolute bottom-40 sm:bottom-32 left-1/2 transform -translate-x-1/2 flex flex-col items-center z-20 px-4 sm:px-6">
         {/* Eslogan */}
         <motion.p
-          className="text-sm sm:text-xl md:text-2xl max-w-2xl leading-relaxed mx-auto mb-4 sm:mb-6 text-white font-medium italic"
+          className="text-base sm:text-xl md:text-2xl leading-relaxed mx-auto mb-4 sm:mb-6 text-white font-medium italic whitespace-nowrap"
           style={{
             color: '#FFFFFF',
             textShadow: '3px 3px 12px rgba(0,0,0,0.95), 1px 1px 4px rgba(0,0,0,1), 0 0 8px rgba(0,0,0,0.9)',
-            willChange: 'transform'
+            willChange: 'transform',
+            minWidth: 'max-content'
           }}
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
