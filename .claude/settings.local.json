@@ -21,7 +21,9 @@
       "Bash(git init:*)",
       "Bash(git config:*)",
       "Bash(git checkout:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "WebSearch",
+      "WebFetch(domain:mapcarta.com)"
     ],
     "deny": [],
     "ask": []

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const FloatingWhatsApp = () => {
   const message = encodeURIComponent('Hola! Me interesa conocer más sobre los servicios náuticos de GRU Corporación.');
   // Venezuela country code is +58
-  const phoneNumber = '584227000477'; // WhatsApp: 0422 700 0477
+  const phoneNumber = '584129590954'; // WhatsApp: +58 412 959 0954
   
   const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`;
   

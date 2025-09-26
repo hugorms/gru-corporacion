@@ -314,8 +314,8 @@ const Footer = () => {
             </div>
             <div className="text-primary-700 text-base">
               <p>info@grucorporacion.com</p>
-              <p>+58 422 700 0477</p>
-              <p>&nbsp;&nbsp;&nbsp;&nbsp;0424 959 0954</p>
+              <p>+58 412 959 0954</p>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;0422 700 0477</p>
             </div>
           </motion.div>
         </div>

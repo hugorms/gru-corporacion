@@ -64,7 +64,7 @@ initial={{ opacity: 0, x: -30 }}
         </div>
         <div>
           <h4 className="text-white font-semibold text-sm sm:text-base">Teléfono local</h4>
-          <p className="text-secondary-300 text-sm sm:text-base">0424 959 0954</p>
+          <p className="text-secondary-300 text-sm sm:text-base">0422 700 0477</p>
         </div>
       </div>
 
@@ -85,11 +85,19 @@ initial={{ opacity: 0, x: -30 }}
         <div>
           <h4 className="text-white font-semibold text-sm sm:text-base">Ubicación</h4>
           <p className="text-secondary-300 text-sm sm:text-base leading-relaxed">
-            Puerto Marina, Zona Náutica<br />Ciudad Marítima, País
+            <a
+              href="https://maps.google.com/maps?q=Centro+Comercial+Tamanaco,+Pirámide+Invertida,+Caracas,+Venezuela"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-accent-400 transition-colors duration-300 underline decoration-dotted"
+            >
+              Centro Comercial Tamanaco,<br />Pirámide Invertida, Piso 09, Oficina 610
+            </a>
           </p>
         </div>
       </div>
     </div>
+
 
     <div className="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-secondary-400/30">
       <h4 className="text-white font-semibold mb-2 text-sm sm:text-base">
