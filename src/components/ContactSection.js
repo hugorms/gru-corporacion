@@ -64,7 +64,7 @@ initial={{ opacity: 0, x: -30 }}
         </div>
         <div>
           <h4 className="text-white font-semibold text-sm sm:text-base">Teléfono local</h4>
-          <p className="text-secondary-300 text-sm sm:text-base">0422 700 0477</p>
+          <p className="text-secondary-300 text-sm sm:text-base">0212 700 0477</p>
         </div>
       </div>
 
@@ -74,7 +74,7 @@ initial={{ opacity: 0, x: -30 }}
         </div>
         <div>
           <h4 className="text-white font-semibold text-sm sm:text-base">Correo Electrónico</h4>
-          <p className="text-secondary-300 text-sm sm:text-base">info@grucorporacion.com</p>
+          <p className="text-secondary-300 text-sm sm:text-base">info@grunautica.com</p>
         </div>
       </div>
 
@@ -91,7 +91,7 @@ initial={{ opacity: 0, x: -30 }}
               rel="noopener noreferrer"
               className="hover:text-accent-400 transition-colors duration-300 underline decoration-dotted"
             >
-              Centro Comercial Tamanaco,<br />Pirámide Invertida, Piso 09, Oficina 610
+              Centro comercial ciudad Tamanaco,<br />Pirámide Invertida, piso 06, oficina 6-10
             </a>
           </p>
         </div>
