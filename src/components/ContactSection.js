@@ -64,7 +64,7 @@ initial={{ opacity: 0, x: -30 }}
         </div>
         <div>
           <h4 className="text-white font-semibold text-sm sm:text-base">Teléfono local</h4>
-          <p className="text-secondary-300 text-sm sm:text-base">0212 700 0477</p>
+          <p className="text-secondary-300 text-sm sm:text-base">0212 959 0954</p>
         </div>
       </div>
 
