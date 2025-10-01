@@ -52,7 +52,7 @@ const Footer = () => {
   const socialIcons = [
     {
       name: 'Facebook',
-      url: 'https://facebook.com/grucorporacion',
+      url: 'https://www.facebook.com/profile.php?id=61580884167293',
       icon: (
 <svg
     className="w-8 h-8 transition-colors duration-200 hover:text-gray-600"

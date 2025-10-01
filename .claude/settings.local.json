@@ -23,7 +23,12 @@
       "Bash(git checkout:*)",
       "Bash(find:*)",
       "WebSearch",
+<<<<<<< HEAD
       "WebFetch(domain:mapcarta.com)"
+=======
+      "WebFetch(domain:mapcarta.com)",
+      "Bash(git pull:*)"
+>>>>>>> 580b739 (Actualizar enlace de Facebook a nuevo perfil)
     ],
     "deny": [],
     "ask": []
