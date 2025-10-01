@@ -231,35 +231,35 @@ const HeroSection = () => {
             <div className="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-8 lg:h-8 xl:w-9 xl:h-9 rounded-full bg-white flex items-center justify-center">
               <img src="/images/payment-methods/bcv.png" alt="BCV" className="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-8 lg:h-8 xl:w-9 xl:h-9 object-contain cursor-pointer" />
             </div>
-            <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap z-50" style={{ backgroundColor: '#B2BDCE', color: '#2A3B55' }}>
+            <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-normal max-w-[200px] sm:whitespace-nowrap sm:max-w-none text-center z-50" style={{ backgroundColor: '#B2BDCE', color: '#2A3B55' }}>
               Aceptamos todo tipo de transferencias bancarias y Pago Móvil
             </div>
           </div>
           {/* USDT */}
           <div className="relative group">
             <img src="/images/payment-methods/usdt.png" alt="USDT" className="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-8 lg:h-8 xl:w-9 xl:h-9 object-contain cursor-pointer" />
-            <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap z-50" style={{ backgroundColor: '#B2BDCE', color: '#2A3B55' }}>
+            <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-normal max-w-[200px] sm:whitespace-nowrap sm:max-w-none text-center z-50" style={{ backgroundColor: '#B2BDCE', color: '#2A3B55' }}>
               Pagos en USDT (Tether) - Todas las redes
             </div>
           </div>
           {/* Binance */}
           <div className="relative group">
             <img src="/images/payment-methods/binance.png" alt="Binance" className="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-8 lg:h-8 xl:w-9 xl:h-9 object-contain cursor-pointer" />
-            <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap z-50" style={{ backgroundColor: '#B2BDCE', color: '#2A3B55' }}>
+            <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-normal max-w-[200px] sm:whitespace-nowrap sm:max-w-none text-center z-50" style={{ backgroundColor: '#B2BDCE', color: '#2A3B55' }}>
               Binance Pay - Transferencias instantáneas
             </div>
           </div>
           {/* Zelle */}
           <div className="relative group">
             <img src="/images/payment-methods/zelle.svg" alt="Zelle" className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-9 lg:h-9 xl:w-10 xl:h-10 object-contain cursor-pointer" />
-            <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap z-50" style={{ backgroundColor: '#B2BDCE', color: '#2A3B55' }}>
+            <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-normal max-w-[200px] sm:whitespace-nowrap sm:max-w-none text-center z-50" style={{ backgroundColor: '#B2BDCE', color: '#2A3B55' }}>
               Zelle - Pagos en USD desde USA
             </div>
           </div>
           {/* PayPal */}
           <div className="relative group">
             <img src="/images/payment-methods/paypal.png" alt="PayPal" className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-7 lg:h-7 xl:w-8 xl:h-8 object-contain cursor-pointer" />
-            <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap z-50" style={{ backgroundColor: '#B2BDCE', color: '#2A3B55' }}>
+            <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-normal max-w-[200px] sm:whitespace-nowrap sm:max-w-none text-center z-50" style={{ backgroundColor: '#B2BDCE', color: '#2A3B55' }}>
               PayPal - Pagos seguros internacionales
             </div>
           </div>
