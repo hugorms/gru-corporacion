@@ -71,7 +71,7 @@ const HeroSection = () => {
       </div>
 
       {/* Contenedor del título principal - GRUCORPORACIÓN, AGENCIA NAVIERA, descripción */}
-      <div className="relative z-20 container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 text-center -mt-64 sm:-mt-64 lg:-mt-32">
+      <div className="relative z-20 container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 text-center -mt-64 sm:-mt-64 md:-mt-48 lg:-mt-32">
         <motion.div
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -155,7 +155,7 @@ const HeroSection = () => {
       </div>
 
       {/* Contenedor independiente para eslogan y botón */}
-      <div className="absolute bottom-40 sm:bottom-32 lg:bottom-16 left-1/2 transform -translate-x-1/2 flex flex-col items-center z-20 px-4 sm:px-6">
+      <div className="absolute bottom-40 sm:bottom-32 md:bottom-24 lg:bottom-16 left-1/2 transform -translate-x-1/2 flex flex-col items-center z-20 px-4 sm:px-6">
         {/* Eslogan */}
         <motion.p
           className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl leading-relaxed mx-auto mb-4 sm:mb-6 text-white font-medium italic whitespace-nowrap"
@@ -216,6 +216,54 @@ const HeroSection = () => {
             />
           </motion.svg>
         </motion.button>
+      </div>
+
+      {/* Contenedor independiente para métodos de pago - más abajo del botón */}
+      <div className="absolute bottom-28 sm:bottom-20 md:bottom-10 lg:bottom-4 left-1/2 transform -translate-x-1/2 flex items-center justify-center z-20 px-4 sm:px-6">
+        <motion.div
+          className="flex items-center justify-center gap-3"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 0.5 }}
+        >
+          {/* BCV */}
+          <div className="relative group">
+            <div className="w-9 h-9 rounded-full bg-white flex items-center justify-center">
+              <img src="/images/payment-methods/bcv.png" alt="BCV" className="w-9 h-9 cursor-pointer" />
+            </div>
+            <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap z-50" style={{ backgroundColor: '#B2BDCE', color: '#2A3B55' }}>
+              Aceptamos todo tipo de transferencias bancarias y Pago Móvil
+            </div>
+          </div>
+          {/* USDT */}
+          <div className="relative group">
+            <img src="/images/payment-methods/usdt.png" alt="USDT" className="w-9 h-9 cursor-pointer" />
+            <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap z-50" style={{ backgroundColor: '#B2BDCE', color: '#2A3B55' }}>
+              Pagos en USDT (Tether) - Todas las redes
+            </div>
+          </div>
+          {/* Binance */}
+          <div className="relative group">
+            <img src="/images/payment-methods/binance.png" alt="Binance" className="w-9 h-9 cursor-pointer" />
+            <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap z-50" style={{ backgroundColor: '#B2BDCE', color: '#2A3B55' }}>
+              Binance Pay - Transferencias instantáneas
+            </div>
+          </div>
+          {/* Zelle */}
+          <div className="relative group">
+            <img src="/images/payment-methods/zelle.svg" alt="Zelle" className="w-9 h-9 cursor-pointer" />
+            <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap z-50" style={{ backgroundColor: '#B2BDCE', color: '#2A3B55' }}>
+              Zelle - Pagos en USD desde USA
+            </div>
+          </div>
+          {/* PayPal */}
+          <div className="relative group">
+            <img src="/images/payment-methods/paypal.png" alt="PayPal" className="w-9 h-9 cursor-pointer" />
+            <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap z-50" style={{ backgroundColor: '#B2BDCE', color: '#2A3B55' }}>
+              PayPal - Pagos seguros internacionales
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
