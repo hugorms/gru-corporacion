@@ -137,20 +137,20 @@ const Header = () => {
             />
           </div>
           <div className="ml-0 sm:ml-3">
-            <h1 className="text-xl sm:text-2xl tracking-wide leading-tight" style={{color: '#B8872A', textShadow: '1px 1px 3px rgba(0,0,0,0.25)'}}><span className="font-bold">GRU</span> CORPORACIÓN</h1>
-            <p className="text-sm sm:text-base font-medium tracking-wide leading-tight mt-0.5" style={{color: '#2A3B55', textShadow: '1px 1px 3px rgba(0,0,0,0.25)'}}>AGENCIA NAVIERA</p>
+            <h1 className="text-xl sm:text-xl md:text-xl lg:text-xl xl:text-2xl tracking-wide leading-tight" style={{color: '#B8872A', textShadow: '1px 1px 3px rgba(0,0,0,0.25)'}}><span className="font-bold">GRU</span> CORPORACIÓN</h1>
+            <p className="text-sm sm:text-sm md:text-sm lg:text-sm xl:text-base font-medium tracking-wide leading-tight mt-0.5" style={{color: '#2A3B55', textShadow: '1px 1px 3px rgba(0,0,0,0.25)'}}>AGENCIA NAVIERA</p>
           </div>
         </motion.div>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
+        <nav className="hidden lg:flex items-center space-x-4 lg:space-x-5 xl:space-x-8">
           {navItems.map((item, index) => (
             <motion.a
               key={item.name}
               href={item.href}
-              className={`font-medium relative px-1 transition-colors text-base ${
-                activeSection === item.id 
-                  ? 'text-primary-700' 
+              className={`font-medium relative px-1 transition-colors text-sm lg:text-sm xl:text-base ${
+                activeSection === item.id
+                  ? 'text-primary-700'
                   : 'text-primary-700 hover:text-accent-600'
               }`}
               style={activeSection === item.id ? { color: '#B8872A' } : {}}

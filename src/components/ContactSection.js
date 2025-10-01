@@ -38,7 +38,7 @@ const ContactSection = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl font-bold text-white mb-3">Contáctanos</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-3xl xl:text-4xl font-bold text-white mb-3">Contáctanos</h2>
           <p className="text-sm text-secondary-200 px-4 sm:px-0">
             Servicios náuticos profesionales - Estamos aquí para ayudarte.
           </p>

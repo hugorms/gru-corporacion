@@ -137,7 +137,7 @@ const MainSections = () => {
             viewport={{ once: true }}
           >
             <motion.h2
-              className="text-3xl font-bold text-white mb-6 sm:mb-8"
+              className="text-2xl sm:text-3xl md:text-3xl lg:text-3xl xl:text-4xl font-bold text-white mb-6 sm:mb-8"
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -274,7 +274,7 @@ const MainSections = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold text-primary-900 mb-6 sm:mb-8">Público Objetivo</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-3xl xl:text-4xl font-bold text-primary-900 mb-6 sm:mb-8">Público Objetivo</h2>
             <p className="text-base text-primary-700 max-w-4xl mx-auto leading-relaxed px-4 sm:px-0 mb-8">
               Nuestros servicios están dirigidos a distintos actores del sector marítimo y portuario que buscan eficiencia, seguridad y respaldo en sus operaciones.
             </p>
@@ -523,7 +523,7 @@ const MainSections = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold text-primary-900 mb-2">Nuestros Servicios</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-3xl xl:text-4xl font-bold text-primary-900 mb-2">Nuestros Servicios</h2>
             <p className="text-base text-primary-700 max-w-3xl mx-auto px-4 sm:px-0">Ofrecemos servicios náuticos profesionales para mantener tu embarcación en perfectas condiciones y maximizar su rendimiento.</p>
           </motion.div>
 
@@ -633,7 +633,7 @@ const MainSections = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold text-primary-900 mb-4 sm:mb-6">Lo Que Dicen Nuestros Clientes</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-3xl xl:text-4xl font-bold text-primary-900 mb-4 sm:mb-6">Lo Que Dicen Nuestros Clientes</h2>
             <p className="text-base text-primary-700 max-w-3xl mx-auto px-4 sm:px-0">La satisfacción de nuestros clientes es nuestro mayor logro. Conoce sus experiencias trabajando con nosotros.</p>
           </motion.div>
 

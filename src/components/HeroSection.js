@@ -71,7 +71,7 @@ const HeroSection = () => {
       </div>
 
       {/* Contenedor del título principal - GRUCORPORACIÓN, AGENCIA NAVIERA, descripción */}
-      <div className="relative z-20 container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 text-center -mt-64 sm:-mt-64">
+      <div className="relative z-20 container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 text-center -mt-64 sm:-mt-64 lg:-mt-32">
         <motion.div
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -103,7 +103,7 @@ const HeroSection = () => {
             ></motion.div>
             <div className="relative z-10">
               <motion.span
-                className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold inline-block"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold inline-block"
                 style={{color: '#B8872A', textShadow: '1px 1px 3px rgba(0,0,0,0.25)', willChange: 'transform'}}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -113,7 +113,7 @@ const HeroSection = () => {
               </motion.span>
               <motion.span
                 style={{marginLeft: '0.2em', color: '#FFFFFF', textShadow: '1px 1px 3px rgba(0,0,0,0.25)', willChange: 'transform'}}
-                className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal inline-block"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-normal inline-block"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.5, ease: "easeOut" }}
@@ -124,7 +124,7 @@ const HeroSection = () => {
           </motion.h1>
 
           <motion.p
-            className="text-xl sm:text-4xl md:text-5xl font-medium tracking-wide text-white relative z-20"
+            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-medium tracking-wide text-white relative z-20"
             style={{
               color: '#2A3B55',
               marginTop: isMobile ? '-0.5rem' : '0',
@@ -139,7 +139,7 @@ const HeroSection = () => {
           </motion.p>
 
           <motion.p
-            className="text-base sm:text-3xl md:text-4xl max-w-xs sm:max-w-3xl leading-relaxed mx-auto mb-4 sm:mb-12 text-white relative z-20"
+            className="text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl max-w-xs sm:max-w-2xl lg:max-w-3xl leading-relaxed mx-auto mb-4 sm:mb-12 text-white relative z-20"
             style={{
               textShadow: '2px 2px 8px rgba(0,0,0,0.7)',
               marginTop: isMobile ? '-0.5rem' : '0',
@@ -155,10 +155,10 @@ const HeroSection = () => {
       </div>
 
       {/* Contenedor independiente para eslogan y botón */}
-      <div className="absolute bottom-40 sm:bottom-32 left-1/2 transform -translate-x-1/2 flex flex-col items-center z-20 px-4 sm:px-6">
+      <div className="absolute bottom-40 sm:bottom-32 lg:bottom-16 left-1/2 transform -translate-x-1/2 flex flex-col items-center z-20 px-4 sm:px-6">
         {/* Eslogan */}
         <motion.p
-          className="text-base sm:text-xl md:text-2xl leading-relaxed mx-auto mb-4 sm:mb-6 text-white font-medium italic whitespace-nowrap"
+          className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl leading-relaxed mx-auto mb-4 sm:mb-6 text-white font-medium italic whitespace-nowrap"
           style={{
             color: '#FFFFFF',
             textShadow: '3px 3px 12px rgba(0,0,0,0.95), 1px 1px 4px rgba(0,0,0,1), 0 0 8px rgba(0,0,0,0.9)',
@@ -174,7 +174,7 @@ const HeroSection = () => {
 
         {/* Botón Cotiza con nosotros con flecha al lado */}
         <motion.button
-          className="px-4 sm:px-8 md:px-10 py-2 sm:py-4 rounded-full text-sm sm:text-base font-semibold shadow-xl hover:shadow-2xl transition-shadow duration-300 flex items-center justify-center gap-2"
+          className="px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 py-2 sm:py-3 md:py-3 lg:py-3 xl:py-4 rounded-full text-sm sm:text-sm md:text-base lg:text-base font-semibold shadow-xl hover:shadow-2xl transition-shadow duration-300 flex items-center justify-center gap-2"
           style={{backgroundColor: '#B8872A', color: 'black', willChange: 'transform'}}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
