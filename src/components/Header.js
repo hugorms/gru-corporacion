@@ -125,10 +125,7 @@ const Header = () => {
       <div className="container mx-auto px-4 sm:px-6 py-2 sm:py-0 flex items-center justify-between">
         
         {/* Logo */}
-        <motion.div
-          className="flex items-center space-x-3 cursor-pointer py-1"
-          whileHover={{ scale: 1.05 }}
-        >
+        <div className="flex items-center space-x-3 cursor-pointer py-1">
           <div className="w-16 h-16 sm:w-16 sm:h-16 flex items-center justify-center">
             <img
               src="/images/logos/LOGO sin texto .png"
@@ -140,7 +137,7 @@ const Header = () => {
             <h1 className="text-xl sm:text-xl md:text-xl lg:text-xl xl:text-2xl tracking-wide leading-tight" style={{color: '#B8872A', textShadow: '1px 1px 3px rgba(0,0,0,0.25)'}}><span className="font-bold">GRU</span> CORPORACIÓN</h1>
             <p className="text-sm sm:text-sm md:text-sm lg:text-sm xl:text-base font-medium tracking-wide leading-tight mt-0.5" style={{color: '#2A3B55', textShadow: '1px 1px 3px rgba(0,0,0,0.25)'}}>AGENCIA NAVIERA</p>
           </div>
-        </motion.div>
+        </div>
 
         {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center space-x-4 lg:space-x-5 xl:space-x-8">
