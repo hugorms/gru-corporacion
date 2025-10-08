@@ -80,7 +80,7 @@ const HeroSection = () => {
       </div>
 
       {/* Contenedor del título principal - GRUCORPORACIÓN, AGENCIA NAVIERA, descripción */}
-      <div className="relative z-20 container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 text-center -mt-64 sm:-mt-64 md:-mt-48 lg:-mt-32">
+      <div className="relative z-20 container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 text-center -mt-64 sm:-mt-64 md:-mt-48 lg:-mt-64 xl:-mt-72">
         <motion.div
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -164,7 +164,7 @@ const HeroSection = () => {
       </div>
 
       {/* Contenedor independiente para eslogan y botón */}
-      <div className="absolute bottom-40 sm:bottom-32 md:bottom-24 lg:bottom-16 left-1/2 transform -translate-x-1/2 flex flex-col items-center z-20 px-4 sm:px-6">
+      <div className="absolute bottom-40 sm:bottom-32 md:bottom-24 lg:bottom-36 xl:bottom-40 left-1/2 transform -translate-x-1/2 flex flex-col items-center z-20 px-4 sm:px-6">
         {/* Eslogan */}
         <motion.p
           className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl leading-relaxed mx-auto mb-4 sm:mb-6 text-white font-medium italic whitespace-nowrap"
@@ -228,7 +228,7 @@ const HeroSection = () => {
       </div>
 
       {/* Contenedor independiente para métodos de pago - más abajo del botón */}
-      <div className="absolute bottom-28 sm:bottom-20 md:bottom-10 lg:bottom-4 left-1/2 transform -translate-x-1/2 flex items-center justify-center z-20 px-4 sm:px-6">
+      <div className="absolute bottom-28 sm:bottom-20 md:bottom-10 lg:bottom-20 xl:bottom-24 left-1/2 transform -translate-x-1/2 flex items-center justify-center z-20 px-4 sm:px-6">
         <motion.div
           className="flex items-center justify-center gap-3"
           initial={{ opacity: 0 }}
