@@ -313,7 +313,7 @@ const Footer = () => {
               ))}
             </div>
             <div className="text-primary-700 text-base">
-              <p>soporte@grunautica.com</p>
+              <p>gru@grunautica.com</p>
               <p>+58 422 700 0477</p>
               <p>&nbsp;&nbsp;&nbsp;&nbsp;0212 959 0954</p>
             </div>

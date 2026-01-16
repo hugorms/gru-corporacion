@@ -74,7 +74,7 @@ initial={{ opacity: 0, x: -30 }}
         </div>
         <div>
           <h4 className="text-white font-semibold text-sm sm:text-base">Correo Electrónico</h4>
-          <p className="text-secondary-300 text-sm sm:text-base">soporte@grunautica.com</p>
+          <p className="text-secondary-300 text-sm sm:text-base">gru@grunautica.com</p>
         </div>
       </div>
 
